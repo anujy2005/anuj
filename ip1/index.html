@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnSphere | Online Courses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo">
+                <span class="logo-icon">⟐</span>
+                <span class="logo-text">LearnSphere</span>
+            </div>
+            <button class="explore-btn" id="exploreBtn">Explore <i class="fas fa-chevron-down"></i></button>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="What do you want to learn?">
+                <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="#" id="degreesLink">Degrees</a>
+            <a href="#" id="careersLink">Find Careers</a>
+            <a href="#" class="login-link" id="loginLink">Log In</a>
+            <button class="join-btn" id="joinBtn">Join for Free</button>
+        </div>
+    </nav>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Log In to LearnSphere</h3>
+                <button class="close-btn" id="closeLogin">&times;</button>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="userId">User ID</label>
+                    <input type="text" id="userId" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="primary-btn full-width">Log In</button>
+            </form>
+            <p class="modal-footer">Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Join LearnSphere</h3>
+                <button class="close-btn" id="closeRegister">&times;</button>
+            </div>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="regUserId">User ID</label>
+                    <input type="text" id="regUserId" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" required>
+                </div>
+                <button type="submit" class="primary-btn full-width">Create Account</button>
+            </form>
+            <p class="modal-footer">Already have an account? <a href="#" id="showLogin">Log in here</a></p>
+        </div>
+    </div>
+
+    <!-- Course Details Modal -->
+    <div class="modal course-modal" id="courseModal">
+        <div class="modal-content course-details">
+            <div class="modal-header">
+                <h3 id="courseTitle"></h3>
+                <button class="close-btn" id="closeCourse">&times;</button>
+            </div>
+            <div class="course-details-content">
+                <div class="course-info">
+                    <div class="course-partner" id="coursePartner"></div>
+                    <div class="course-rating" id="courseRating"></div>
+                </div>
+                <div class="course-description">
+                    <p>Click "Enroll Now" to start learning from world-class instructors on LearnSphere!</p>
+                </div>
+                <button class="primary-btn full-width" id="enrollBtn">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Learn without limits</h1>
+            <p>Start, switch, or advance your career with more than 5,000 courses, Professional Certificates, and degrees from world-class universities and companies.</p>
+            <div class="hero-buttons">
+                <button class="primary-btn hero-join-btn">Join for Free</button>
+                <button class="secondary-btn" id="businessBtn">Try LearnSphere for Business</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/6xXO64p9Sjqivm1i0Vswy5/2798f56641d44cb25f992a62f6b3e7cb/coursera-learner-hero-1.png?auto=format%2Ccompress&dpr=1" alt="Learning">
+        </div>
+    </header>
+
+    <!-- MARQUEE PARTNERS SECTION -->
+    <section class="partners">
+        <p>We collaborate with <strong>275+ leading universities and companies</strong></p>
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <div class="partner-logos">
+                    <span>Illinois</span>
+                    <span>Duke</span>
+                    <span>Google</span>
+                    <span>IBM</span>
+                    <span>Stanford</span>
+                    <span>Penn</span>
+                    <span>Meta</span>
+                    <span>Illinois</span>
+                    <span>Duke</span>
+                    <span>Google</span>
+                    <span>IBM</span>
+                    <span>Stanford</span>
+                    <span>Penn</span>
+                    <span>Meta</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Most Popular Certificates</h2>
+        <div id="course-container" class="course-grid"></div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>LearnSphere</h4>
+                <a href="#" data-page="about">About</a>
+                <a href="#" data-page="offer">What We Offer</a>
+                <a href="#" data-page="leadership">Leadership</a>
+            </div>
+            <div class="footer-col">
+                <h4>Community</h4>
+                <a href="#" data-page="learners">Learners</a>
+                <a href="#" data-page="partners">Partners</a>
+                <a href="#" data-page="developers">Developers</a>
+            </div>
+            <div class="footer-col">
+                <h4>More</h4>
+                <a href="#" data-page="terms">Terms</a>
+                <a href="#" data-page="privacy">Privacy</a>
+                <a href="#" data-page="help">Help</a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 LearnSphere Inc. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
